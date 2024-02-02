@@ -12,10 +12,10 @@
 <header class="bg-black text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo con enlace a la página principal -->
-        <a href="#" class="text-2xl font-bold text-green-500">Security Blog</a>
+        <a href="#" class="text-2xl font-bold text-green-500 transition duration-300 transform hover:text-gray-800 hover:scale-105">Security Blog</a>
 
         <!-- Botón de login -->
-        <button class="bg-green-500 text-white px-4 py-2 rounded">Login</button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded transition duration-300 hover:scale-105">Login</button>
     </div>
 </header>
 
@@ -23,10 +23,10 @@
 <nav class="bg-gray-800 text-white p-4">
     <div class="container mx-auto flex justify-center">
         <!-- Enlace a los posts públicos -->
-        <a href="#" class="mx-4">Posts Públicos</a>
+        <a href="#" class="mx-4 transition text-green-300 duration-300 transform hover:text-gray-300 hover:scale-105">Posts Públicos</a>
 
         <!-- Enlace para crear un nuevo post (privado) -->
-        <a href="#" class="mx-4">Crear Post</a>
+        <a href="#" class="mx-4 transition text-green-300 duration-300 transform hover:text-gray-300 hover:scale-105">Crear Post</a>
     </div>
 </nav>
 
