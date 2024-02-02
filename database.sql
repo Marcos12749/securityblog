@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS `POST`;
+
+CREATE TABLE `POST`.`contenido` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE,
+  `titulo` VARCHAR(50) NULL,
+  `noticia` TEXT(1000) NULL,
+  `imagen` TEXT(500) NULL,
+  PRIMARY KEY (`id`));
