@@ -11,20 +11,20 @@ $pdo = new PDO($dsn);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibir datos del formulario
     $correo = $_POST["correo"];
-    $contrasena = $_POST["contrasena"];
-    $confirmarContrasena = $_POST["confirmar_contrasena"];
+    $contraseña = $_POST["contraseña"];
+    $confirmarContraseña = $_POST["confirmar_contraseña"];
 
     // Validar que las contraseñas coincidan
-    if ($contrasena != $confirmarContrasena) {
+    if ($contraseña != $confirmarContraseña) {
         echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
     } else {
         // Contraseñas coinciden, proceder con el registro en la base de datos
-        $hashedContrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+        $hashedContraseña = password_hash($contraseña, PASSWORD_DEFAULT);
 
         // Preparar la consulta SQL para insertar en la base de datos
-        $sql = "INSERT INTO usuarios (correo, contrasena) VALUES (?, ?)";
+        $sql = "INSERT INTO usuarios (correo, contraseña) VALUES (?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$correo, $hashedContrasena]);
+        $stmt->execute([$correo, $hashedContraseña]);
 
         // Redirigir al usuario a la página de inicio después del registro
         header("Location: index.php");

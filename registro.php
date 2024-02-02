@@ -11,20 +11,20 @@ $pdo = new PDO($dsn);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recibir datos del formulario
     $correo = $_POST["correo"];
-    $contrasena = $_POST["contrasena"];
-    $confirmarContrasena = $_POST["confirmar_contrasena"];
+    $contraseña = $_POST["contraseña"];
+    $confirmarcontraseña = $_POST["confirmar_contraseña"];
 
     // Validar que las contraseñas coincidan
-    if ($contrasena != $confirmarContrasena) {
+    if ($contraseña != $confirmarcontraseña) {
         echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
     } else {
         // Contraseñas coinciden, proceder con el registro en la base de datos
-        $hashedContrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+        $hashedcontraseña = password_hash($contraseña, PASSWORD_DEFAULT);
 
         // Preparar la consulta SQL para insertar en la base de datos
-        $sql = "INSERT INTO usuarios (correo, contrasena) VALUES (?, ?)";
+        $sql = "INSERT INTO usuarios (correo, contraseña) VALUES (?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$correo, $hashedContrasena]);
+        $stmt->execute([$correo, $hashedcontraseña]);
 
         header("Location: index.php");
         exit();
@@ -46,14 +46,14 @@ include 'header.php'
 
         <!-- Campo de contraseña -->
         <div class="mb-4">
-            <label for="contrasena" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" class="w-full p-2 border border-gray-300 rounded">
+            <label for="contraseña" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" class="w-full p-2 border border-gray-300 rounded">
         </div>
 
         <!-- Campo de confirmación de contraseña -->
         <div class="mb-6">
-            <label for="confirmar_contrasena" class="block text-gray-700 text-sm font-bold mb-2">Confirmar Contraseña:</label>
-            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" class="w-full p-2 border border-gray-300 rounded">
+            <label for="confirmar_contraseña" class="block text-gray-700 text-sm font-bold mb-2">Confirmar Contraseña:</label>
+            <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" class="w-full p-2 border border-gray-300 rounded">
         </div>
 
         <!-- Botón de enviar -->

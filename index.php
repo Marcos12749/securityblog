@@ -2,9 +2,9 @@
 include 'header.php';
 
 // Conexión a la base de datos (ajusta los detalles según tu configuración)
-$servername = "192.168.12.207";
-$username = "pym";
-$password = "1234";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "post";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
